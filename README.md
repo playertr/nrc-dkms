@@ -21,7 +21,7 @@ Configure SPI pins with device tree overlay (see .dts file for platform-specific
 ```
 cd nrc-dkms/misc/dts
 dtc -O dtb -o jetson_nrc7292.dtbo jetson_nrc7292.dts
-sudo cp misc/dts/jetson_nrc7292.dtbo /boot
+sudo cp jetson_nrc7292.dtbo /boot
 sudo /opt/nvidia/jetson-io/config-by-hardware.py -n "Prepare SPI0 for NRC Driver"
 ```
 
