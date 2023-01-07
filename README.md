@@ -4,6 +4,8 @@ Teledatics Debian DKMS package repository for the Newracom nrc7292_sw_pkg driver
 
 Modified for Jetson Nano.
 
+> :warning: **Heads Up**: This doesn't work yet. I'll remove this banner once it works. If you're finding this years later in a futile attempt to incorporate the NRC7292 in a Jetson Nano, godspeed :rocket:.
+
 # Set up on Jetson Nano
 
 Build kernel module with
