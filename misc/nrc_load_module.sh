@@ -18,7 +18,7 @@ if lsmod | grep -Eq "^${MOD_NAME} "; then
 	exit -1;
 fi
 
-insmod ${MOD_PATH_NAME} fw_name=nrc7292_cspi.bin bd_name=nrc7292_bd.dat spi_bus_num=${SPI_BUS_NO} spi_cs_num=0 spi_gpio_irq=${SPI_GPIO_NO} spi_polling_interval=5 hifspeed=3000000
+insmod ${MOD_PATH_NAME} fw_name=nrc7292_cspi.bin bd_name=nrc7292_bd.dat spi_bus_num=${SPI_BUS_NO} spi_cs_num=0 spi_gpio_irq=${SPI_GPIO_NO} spi_polling_interval=0 hifspeed=20000000 power_save=0 bss_max_idle=180 auto_ba=1 listen_interval=1000 credit_ac_be=40 debug_level_all=1
 
 # wait until module is loaded
 while ! lsmod | grep -Eq "^${MOD_NAME} "; do
