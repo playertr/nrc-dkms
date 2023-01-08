@@ -3,7 +3,8 @@
 # Teledatics spi_ft232h & nrc module load helper script
 
 SPI_BUS_NO=`nrc_busno.sh`
-SPI_GPIO_NO=`nrc_gpiono.sh`
+# SPI_GPIO_NO=`nrc_gpiono.sh`
+SPI_GPIO_NO=149
 MOD_PATH="/lib/modules/`uname -r`/updates/dkms"
 MOD_NAME="nrc"
 MOD_PATH_NAME=`ls ${MOD_PATH}/${MOD_NAME}*`
