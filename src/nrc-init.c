@@ -507,8 +507,10 @@ static void nrc_check_start(struct work_struct *work)
 	nw->ps_wq = create_singlethread_workqueue("nrc_ps_wq");
 
 	skb_req = nrc_wim_alloc_skb(nw, WIM_CMD_START, sizeof(int));
-	if (!skb_req)
+	if (!skb_req) {
+		nrc_dbg(NRC_DBG_MAC, "no skb_req", __func__);
 		goto fail_start;
+	}
 	p = nrc_wim_skb_add_tlv(skb_req, WIM_TLV_DRV_INFO,
 			sizeof(struct wim_drv_info_param), NULL);
 	p->boot_mode = (nw->fw_priv->num_chunks > 0) ? 1 : 0;
@@ -518,18 +520,22 @@ static void nrc_check_start(struct work_struct *work)
 	skb_resp = nrc_xmit_wim_request_wait(nw, skb_req, (WIM_RESP_TIMEOUT * 30));
 	if (skb_resp)
 		nrc_on_fw_ready(skb_resp, nw);
-	else
+	else {
+		nrc_dbg(NRC_DBG_MAC, "no skb_resp", __func__);
 		goto fail_start;
+	}
 
 	ret = nrc_register_hw(nw);
 	if (ret) {
 		pr_err("failed to register hw\n");
+		nrc_dbg(NRC_DBG_MAC, "failed to register hw", __func__);
 		goto fail_start;
 	}
 
 	ret = nrc_netlink_init(nw);
 	if (ret) {
 		pr_err("failed to register netlink\n");
+		nrc_dbg(NRC_DBG_MAC, "failed to register netlink", __func__);
 		goto fail_start;
 	}
 
