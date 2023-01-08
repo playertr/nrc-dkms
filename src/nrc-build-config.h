@@ -30,11 +30,15 @@
 
 /*#define NRC_TEST_SUPPRESS_STA_KEEEP_ALIVE*/
 
+/*#define CONFIG_SPI_HALF_DUPLEX*/
+
 /*
  * README This is a temporary feature.
  * Use only NRC7392
  */
+#ifndef CONFIG_SPI_HALF_DUPLEX
 #define CONFIG_CHECK_READY
+#endif
 
 /*
  * README This is a temporary feature.
@@ -116,7 +120,7 @@
 #define CONFIG_SUPPORT_PS
 #define CONFIG_SUPPORT_NEW_MAC_TX
 #define CONFIG_SUPPORT_P2P
-// #define CONFIG_SUPPORT_BD
+#define CONFIG_SUPPORT_BD
 /* To use JPPC board data file & FW */
 #undef CONFIG_SUPPORT_JPPC
 #endif
