@@ -51,6 +51,5 @@
 ./src/nrc-wim-types.h
 ./src/nrc.h
 ./src/nrc.lds
-./src/nrc.mod.c
 ./src/wim.c
 ./src/wim.h
